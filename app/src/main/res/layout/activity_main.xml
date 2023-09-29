@@ -34,11 +34,12 @@
 
     <TextView
         android:id="@+id/temp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/poppins_bold"
         android:text="28"
+        android:gravity="center_horizontal"
         android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.2"
@@ -104,18 +105,7 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:padding="10dp"
-        tools:listitem="@layout/info"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/linearlayout"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/linearlayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout"
-        app:layout_constraintVertical_bias="0.527" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
