@@ -68,6 +68,9 @@ dependencies {
     //coil
     implementation("io.coil-kt:coil:2.4.0")
 
+    //gif libabry
+    implementation ("com.airbnb.android:lottie:6.1.0")
+
 
 }
 
