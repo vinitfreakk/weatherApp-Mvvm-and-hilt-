@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background1"
+    android:background="@color/background3"
+
     tools:context=".SpalshScreen">
 
   <!--  <VideoView
@@ -26,9 +27,8 @@
       android:id="@+id/textView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:fontFamily="sans-serif-thin"
+      android:fontFamily="@font/poppins_bold"
       android:text="WEATHER TODAY"
-      android:textColor="@color/white"
       android:textSize="30sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
