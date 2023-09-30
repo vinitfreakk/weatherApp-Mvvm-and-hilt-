@@ -4,16 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.recyclerview.widget.RecyclerView
 import com.accidentaldeveloper.weather_app.viewmodel.WeatherViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import androidx.appcompat.widget.SearchView
-import kotlinx.coroutines.GlobalScope
+import com.accidentaldeveloper.weather_app.databinding.ActivityMainBinding
 
 
 @AndroidEntryPoint
@@ -21,16 +17,18 @@ class MainActivity : AppCompatActivity() {
     private val viewmodel:WeatherViewModel by viewModels()
 
     private lateinit var searchView: SearchView
-    private lateinit var Weather_img:ImageView
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val txt = findViewById<TextView>(R.id.tv)
+        /*val txt = binding.tv
         val temp = findViewById<TextView>(R.id.temp)
         val temp_txt = findViewById<TextView>(R.id.temp_txt)
         val wind_speed = findViewById<TextView>(R.id.wind_speed)
-        Weather_img = findViewById<ImageView>(R.id.imageView);
+        Weather_img = findViewById<ImageView>(R.id.imageView);*/
 
        searchView = findViewById(R.id.searchView)
 
@@ -60,10 +58,10 @@ class MainActivity : AppCompatActivity() {
         viewmodel.live_Weather_Response.observe(this,{
             val kelvin = it.main.temp.toDouble() // Convert to Double if necessary
             val celsius = (kelvin - 273).toInt()
-            txt.setText(it.name)
-            temp.setText(celsius.toString())
-            temp_txt.setText(it.weather.get(0).description)
-            wind_speed.setText(it.wind.speed.toString())
+            binding.tv.setText(it.name)
+            binding.temp.setText(celsius.toString())
+            binding.tempTxt.setText(it.weather.get(0).description)
+            binding.windSpeed.setText(it.wind.speed.toString())
             setWheatherIcon(it.weather.get(0).description)
             Log.d("TAG", "onCreate: ${it.main}")
         })
@@ -72,17 +70,17 @@ class MainActivity : AppCompatActivity() {
     }
     private fun setWheatherIcon(wheather:String){
         when(wheather){
-            "clear sky"->Weather_img.setImageResource(R.drawable.sun)
-            "few clouds"->Weather_img.setImageResource(R.drawable.few_clouds)
-            "scattered clouds"->Weather_img.setImageResource(R.drawable.scattered_clouds)
-            "broken clouds"->Weather_img.setImageResource(R.drawable.few_clouds)
-            "shower rain"->Weather_img.setImageResource(R.drawable.shower_rain)
-            "rain"->Weather_img.setImageResource(R.drawable.rain)
-            "thunderstorm"->Weather_img.setImageResource(R.drawable.thunderstorm)
-            "snow"->Weather_img.setImageResource(R.drawable.snow)
-            "mist"->Weather_img.setImageResource(R.drawable.mist)
-            "overcast clouds"->Weather_img.setImageResource(R.drawable.dark_cloud)
-            "haze"->Weather_img.setImageResource(R.drawable.dust)
+            "clear sky"->binding.imageView.setImageResource(R.drawable.sun)
+            "few clouds"->binding.imageView.setImageResource(R.drawable.few_clouds)
+            "scattered clouds"->binding.imageView.setImageResource(R.drawable.scattered_clouds)
+            "broken clouds"->binding.imageView.setImageResource(R.drawable.few_clouds)
+            "shower rain"->binding.imageView.setImageResource(R.drawable.shower_rain)
+            "rain"->binding.imageView.setImageResource(R.drawable.rain)
+            "thunderstorm"->binding.imageView.setImageResource(R.drawable.thunderstorm)
+            "snow"->binding.imageView.setImageResource(R.drawable.snow)
+            "mist"->binding.imageView.setImageResource(R.drawable.mist)
+            "overcast clouds"->binding.imageView.setImageResource(R.drawable.dark_cloud)
+            "haze"->binding.imageView.setImageResource(R.drawable.dust)
         }
     }
 }
