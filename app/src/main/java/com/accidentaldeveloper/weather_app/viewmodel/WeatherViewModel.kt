@@ -9,6 +9,7 @@ import com.accidentaldeveloper.weather_app.helper.AppConstant
 import com.accidentaldeveloper.weather_app.models.Weather_Response
 import com.accidentaldeveloper.weather_app.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,7 +22,7 @@ class WeatherViewModel @Inject constructor(val weatherRepository: WeatherReposit
         fetchWeather(name)
     }
 
-    fun fetchWeather(city:String) = viewModelScope.launch {
+    fun fetchWeather(city:String) = viewModelScope.launch(Dispatchers.IO) {
       weatherRepository.getWeatherForecast(city,AppConstant.api_key).let {response->
            if(response.isSuccessful){
                Weather_Response.postValue(response.body())
