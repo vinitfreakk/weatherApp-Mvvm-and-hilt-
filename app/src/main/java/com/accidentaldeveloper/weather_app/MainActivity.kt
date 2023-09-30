@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-       // scheduleBackgroundChange()
+
+
 
 
 
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 viewmodel.fetchWeather(query.toString())
                 binding.searchView.setQuery("", false)
-                //binding. searchView.queryHint = "Enter City"
+                binding. searchView.queryHint = "Enter City"
                 return true
             }
 

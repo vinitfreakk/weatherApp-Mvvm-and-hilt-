@@ -22,6 +22,7 @@ class SpalshScreen : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent  = Intent(this@SpalshScreen,MainActivity::class.java)
             startActivity(intent)
-        },3000)
+            finish()
+        },4500)
     }
 }

@@ -5,5 +5,5 @@ object AppConstant {
 
     const val END_POINT = "weather"
 
-    const val api_key = "00da95dc79d1f6924673a9e8261bdf09"
+    const val api_key = "YOUR_API_KEY_HERE"
 }

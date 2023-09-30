@@ -14,8 +14,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        app:queryHint="Enter City"
         android:iconifiedByDefault="false"
-        android:queryHint="Enter City"
+        app:iconifiedByDefault="false"
         android:fontFamily="@font/poppins_bold"
         android:background="@drawable/bg"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,6 +126,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg"
         android:layout_margin="10dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -217,7 +219,7 @@
                <TextView
                    android:id="@+id/sunset_info"
                    android:layout_gravity="center_horizontal"
-                   android:text="Sunrise"
+                   android:text="Sunset"
                    android:textSize="11sp"
                    android:fontFamily="@font/poppins_bold"
                    android:layout_width="wrap_content"
