@@ -23,7 +23,7 @@ class WeatherViewModel @Inject constructor(val weatherRepository: WeatherReposit
     }
 
     fun fetchWeather(city:String) = viewModelScope.launch(Dispatchers.IO) {
-      weatherRepository.getWeatherForecast(city,AppConstant.api_key).let {response->
+      weatherRepository.getWeatherForecast(city,AppConstant.api_key,"metrics").let {response->
            if(response.isSuccessful){
                Weather_Response.postValue(response.body())
            }else{

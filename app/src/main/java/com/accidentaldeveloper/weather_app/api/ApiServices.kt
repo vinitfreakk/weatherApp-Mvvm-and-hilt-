@@ -13,8 +13,8 @@ interface ApiServices {
         city:String,
         @Query("appid")
         appid:String,
-       /* @Query("units")
-        units:String*/
+        @Query("units")
+        units:String
 
 
     ):Response<Weather_Response>
